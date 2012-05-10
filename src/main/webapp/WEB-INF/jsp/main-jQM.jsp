@@ -25,7 +25,7 @@
     <div data-role="content" class="portlet-content">
 
         <ul>
-            <c:forEach items="images" var="image">
+            <c:forEach items="${ images }" var="image">
                 <li><img src="${ image }"/></li>
             </c:forEach>
         </ul>
