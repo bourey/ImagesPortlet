@@ -20,9 +20,38 @@
 --%>
 
 <jsp:directive.include file="/WEB-INF/jsp/include.jsp"/>
+<style type="text/css">
+    .image-grid ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .image-grid li {
+        display: block;
+        float: left;
+        margin: 0px 3px 3px 3px;
+        padding: 0;
+    }
+        
+    /* iphone */
+    @media only screen and (max-device-width: 480px) {
+        .image-grid img {
+            width: 70px;
+            height: 70px;
+        }
+    }
+</style>
 
-<ul>
-    <c:forEach items="${ images }" var="image">
-        <li><img src="${ image }"/></li>
-    </c:forEach>
-</ul>
+
+<div class="portlet">
+    <div data-role="content" class="portlet-content image-grid">
+
+        <ul>
+            <c:forEach items="${ images }" var="image">
+                <li><img src="${ image }"/></li>
+            </c:forEach>
+        </ul>
+   
+    </div>
+</div>
