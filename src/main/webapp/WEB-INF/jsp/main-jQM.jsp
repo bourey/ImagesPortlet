@@ -20,6 +20,7 @@
 --%>
 
 <jsp:directive.include file="/WEB-INF/jsp/include.jsp"/>
+<c:set var="n"><portlet:namespace/></c:set>
 <style type="text/css">
     .image-grid ul {
         list-style: none;
@@ -43,8 +44,32 @@
     }
 </style>
 
+<script type="text/javascript">
+up.jQuery(function() {
+    var $ = up.jQuery;
 
-<div class="portlet">
+    $(document).ready(function() { 
+        
+        $("#${n} .images-back-div a").click(function () {
+            $("#${n} .focused-image").hide();
+            $("#${n} .images-back-div").hide();
+            $("#${n} ul").show();
+        });
+        
+        $("#${n} li img").click(function () {
+            $("#${n} ul").hide();
+            $("#${n} .focused-image").attr("src", $(this).attr("src").replace("s.jpg", "n.jpg")).show();
+            $("#${n} .images-back-div").show();
+        });
+    });
+});
+</script>
+
+<div id="${n}" class="portlet">
+    <div data-role="header" class="titlebar portlet-titlebar images-back-div" style="display:none">
+        <a data-role="button"  data-icon="back" data-inline="true" href="javascript:;">Back</a>
+        <h2>Detail</h2>
+    </div>
     <div data-role="content" class="portlet-content image-grid">
 
         <ul>
@@ -53,5 +78,6 @@
             </c:forEach>
         </ul>
    
+        <img class="focused-image" style="display:none"/>
     </div>
 </div>
