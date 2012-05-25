@@ -58,7 +58,7 @@ up.jQuery(function() {
         
         $("#${n} li img").click(function () {
             $("#${n} ul").hide();
-            $("#${n} .focused-image").attr("src", $(this).attr("src").replace("s.jpg", "n.jpg")).show();
+            $("#${n} .focused-image").attr("src", $(this).attr("src").replace("s.jpg", "m.jpg")).show();
             $("#${n} .images-back-div").show();
         });
     });
@@ -70,14 +70,16 @@ up.jQuery(function() {
         <a data-role="button"  data-icon="back" data-inline="true" href="javascript:;">Back</a>
         <h2>Detail</h2>
     </div>
-    <div data-role="content" class="portlet-content image-grid">
+    
+    <div data-role="content" class="portlet-content">
 
-        <ul>
+        <ul class="image-grid">
             <c:forEach items="${ images }" var="image">
                 <li><img src="${ image }"/></li>
             </c:forEach>
         </ul>
    
         <img class="focused-image" style="display:none"/>
+
     </div>
 </div>
